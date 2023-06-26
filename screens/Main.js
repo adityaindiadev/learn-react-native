@@ -2,10 +2,10 @@
 // https://aboutreact.com/react-native-video/
 
 // import React in our code
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 // import all the components we are going to use
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { BackHandler, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 //Import React Native Video to play video
 import Video from 'react-native-video';
@@ -85,6 +85,34 @@ const Main = () => {
   );
 
   const onSeeking = (currentTime) => setCurrentTime(currentTime);
+
+  function backAction() {
+
+    console.log('screenType',screenType);
+
+    Orientation.getOrientation((err, orientation) => {
+
+      console.log('orientation',orientation);
+
+      // if (orientation == 'LANDSCAPE') {
+      //   if (screenType == 'cover')
+      //     setScreenType('content');
+      //   // Orientation.lockToPortrait();
+      // }
+    });
+
+    // return true;
+
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress', backAction)
+
+    return () => {
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
+    }
+  }, [])
+
 
   return (
     <View style={{ flex: 1 }}>
