@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, NativeModules } from 'react-native'
 import React from 'react'
 
 const Second = ({ navigation }) => {
@@ -74,6 +74,29 @@ const Second = ({ navigation }) => {
           }}
         >
           pop
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          NativeModules.MyCustomModule.myMethod("f","dd","Dd")
+        }}
+        style={{
+          height: 50,
+          backgroundColor: "red",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "50%",
+          borderRadius: 10,
+        }}
+      >
+        <Text
+          style={{
+            color: "white",
+            fontSize: 18,
+            fontWeight: "bold",
+          }}
+        >
+          Call
         </Text>
       </TouchableOpacity>
     </View>

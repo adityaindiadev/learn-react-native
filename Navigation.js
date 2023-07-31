@@ -12,7 +12,7 @@ export default function Navigation() {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Main"
+                initialRouteName="Second"
                 screenOptions={{
                     headerTintColor: 'white',
                     headerStyle: { backgroundColor: 'tomato' },

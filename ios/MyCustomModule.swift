@@ -14,7 +14,7 @@ import React
 class MyCustomModule: NSObject {
 
   // Declare a method to be accessible from JavaScript
-  @objc func myMethod(_ value: String,parameter1: String,parameter2: String, resolver: @escaping RCTPromiseResolveBlock, rejecter: @escaping RCTPromiseRejectBlock) -> Void {
+  @objc func myMethod(_ value: String,parameter1: String,parameter2: String) -> Void {
     // Perform the desired Swift functionality
 //    let result = "Hello, " + input + " " + par1
 
@@ -27,6 +27,6 @@ class MyCustomModule: NSObject {
     NSLog("%@", parameter2);
     print(parameter2)
 //    return "got It"
-    resolver("got It")
+//    resolver("got It")
   }
 }
