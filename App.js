@@ -23,10 +23,10 @@ import {
 } from 'react-native';
 
 import { NativeModules } from 'react-native';
-import RNHorizontalListPicker from 'rn-horizontal-list-picker';
+// import RNHorizontalListPicker from 'rn-horizontal-list-picker';
 
 import ValuePicker from "rn-value-picker";
-import HorizontalPicker from "react-native-horizontal-picker-2";
+// import HorizontalPicker from "react-native-horizontal-picker-2";
 import Navigation from './Navigation';
 
 

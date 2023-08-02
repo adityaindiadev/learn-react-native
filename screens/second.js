@@ -1,16 +1,39 @@
-import { StyleSheet, Text, View, TouchableOpacity, NativeModules } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, NativeModules, NativeEventEmitter, Alert } from 'react-native'
+import React, { useEffect } from 'react'
 
 const Second = ({ navigation }) => {
 
   console.log('Second render');
+
+  const MyModule = new NativeEventEmitter(NativeModules.MyCustomModule)
+
+  function Aditya() {
+    Alert.alert("Arun Sir !")
+
+    navigation.push("Second");
+  }
+
+
+  useEffect(() => {
+
+    MyModule.addListener("CallingFromiOS", res => {
+      console.log("Hi MyModule.addListener", res);
+      Aditya()
+    })
+
+    return () => {
+      MyModule.removeAllListeners("CallingFromiOS")
+    }
+  }, [])
+
+
   return (
 
-    
+
     <View style={{
       flex: 1, backgroundColor: 'blue', justifyContent: "center", alignItems: "center"
     }}>
-        <Text>second</Text>
+      <Text>second</Text>
       <TouchableOpacity
         onPress={() => navigation.push("Second")}
         style={{
@@ -78,6 +101,7 @@ const Second = ({ navigation }) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
+          console.log("onPress", NativeModules?.MyCustomModule);
           NativeModules.MyCustomModule.myMethod("f","dd","Dd")
         }}
         style={{
@@ -102,6 +126,6 @@ const Second = ({ navigation }) => {
     </View>
   )
 }
-        
-        export default Second
+
+export default Second
 

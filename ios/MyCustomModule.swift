@@ -11,7 +11,7 @@ import Foundation
 import React
 
 @objc(MyCustomModule)
-class MyCustomModule: NSObject {
+class MyCustomModule: RCTEventEmitter {
 
   // Declare a method to be accessible from JavaScript
   @objc func myMethod(_ value: String,parameter1: String,parameter2: String) -> Void {
@@ -28,5 +28,15 @@ class MyCustomModule: NSObject {
     print(parameter2)
 //    return "got It"
 //    resolver("got It")
+    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
   }
+  
+  override func supportedEvents() -> [String]! {
+    return ["CallingFromiOS"];
+  }
+  
+  override class func requiresMainQueueSetup() -> Bool {
+    return false;
+  }
+  
 }

@@ -7,9 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
-
+#import "React/RCTEventEmitter.h"
 #import "React/RCTBridgeModule.h"
-@interface RCT_EXTERN_MODULE(MyCustomModule, NSObject)
+@interface RCT_EXTERN_MODULE(MyCustomModule,RCTEventEmitter);
 
 //  RCT_EXTERN_METHOD(myMethod:(int)value ) //Here exported your swift function for React Native
 
