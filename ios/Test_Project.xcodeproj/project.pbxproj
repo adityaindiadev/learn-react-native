@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* Test_ProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Test_ProjectTests.m */; };
 		040B84242A17781C0029808D /* NativeModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 040B84232A17781C0029808D /* NativeModule.m */; };
+		0467CA682A7A7A9B009BBA79 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0467CA672A7A7A9B009BBA79 /* main.storyboard */; };
+		0467CA6A2A7A7C0F009BBA79 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467CA692A7A7C0F009BBA79 /* FirstViewController.swift */; };
 		049C8E462A20B05D004AD1C9 /* MyCustomModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C8E452A20B05D004AD1C9 /* MyCustomModule.swift */; };
 		04DB47442A24771B006F98FE /* MyCustomModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DB47432A24771B006F98FE /* MyCustomModule.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-Test_Project.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Test_Project.a */; };
@@ -35,6 +37,8 @@
 		00E356F21AD99517003FC87E /* Test_ProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test_ProjectTests.m; sourceTree = "<group>"; };
 		040B841C2A1770B30029808D /* Test_Project-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Test_Project-Bridging-Header.h"; sourceTree = "<group>"; };
 		040B84232A17781C0029808D /* NativeModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativeModule.m; sourceTree = "<group>"; };
+		0467CA672A7A7A9B009BBA79 /* main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		0467CA692A7A7C0F009BBA79 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		049C8E452A20B05D004AD1C9 /* MyCustomModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomModule.swift; sourceTree = "<group>"; };
 		04DB47432A24771B006F98FE /* MyCustomModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCustomModule.m; sourceTree = "<group>"; };
 		04DB47452A24796D006F98FE /* MyCustomModule-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyCustomModule-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				040B841C2A1770B30029808D /* Test_Project-Bridging-Header.h */,
+				0467CA672A7A7A9B009BBA79 /* main.storyboard */,
+				0467CA692A7A7C0F009BBA79 /* FirstViewController.swift */,
 			);
 			name = Test_Project;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				0467CA682A7A7A9B009BBA79 /* main.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +441,7 @@
 				040B84242A17781C0029808D /* NativeModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				049C8E462A20B05D004AD1C9 /* MyCustomModule.swift in Sources */,
+				0467CA6A2A7A7C0F009BBA79 /* FirstViewController.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				04DB47442A24771B006F98FE /* MyCustomModule.m in Sources */,
 			);

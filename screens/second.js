@@ -8,9 +8,11 @@ const Second = ({ navigation }) => {
   const MyModule = new NativeEventEmitter(NativeModules.MyCustomModule)
 
   function Aditya() {
+    console.log("Arun Sir !");
     Alert.alert("Arun Sir !")
+    
 
-    navigation.push("Second");
+    // navigation.push("Second");
   }
 
 
@@ -23,6 +25,7 @@ const Second = ({ navigation }) => {
 
     return () => {
       MyModule.removeAllListeners("CallingFromiOS")
+      console.log("Second Unmount");
     }
   }, [])
 
