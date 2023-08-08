@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <ReactNativeNavigation/ReactNativeNavigation.h>
 #import "React/RCTEventEmitter.h"
 #import "React/RCTBridgeModule.h"
 @interface RCT_EXTERN_MODULE(MyCustomModule,RCTEventEmitter);

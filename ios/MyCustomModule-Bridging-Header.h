@@ -8,6 +8,7 @@
 #ifndef MyCustomModule_Bridging_Header_h
 #define MyCustomModule_Bridging_Header_h
 #import "AppDelegate.h"
+#import <ReactNativeNavigation/ReactNativeNavigation.h>
 
 #if __has_include("RCTBridgeModule.h")
 #import "RCTBridgeModule.h"

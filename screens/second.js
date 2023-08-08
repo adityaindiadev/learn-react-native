@@ -1,7 +1,9 @@
 import { StyleSheet, Text, View, TouchableOpacity, NativeModules, NativeEventEmitter, Alert } from 'react-native'
 import React, { useEffect } from 'react'
+import { Navigation } from "react-native-navigation";
 
-const Second = ({ navigation }) => {
+const Second = (props) => {
+  let subscription;
 
   console.log('Second render');
 
@@ -10,7 +12,8 @@ const Second = ({ navigation }) => {
   function Aditya() {
     console.log("Arun Sir !");
     Alert.alert("Arun Sir !")
-    
+
+
 
     // navigation.push("Second");
   }
@@ -21,11 +24,21 @@ const Second = ({ navigation }) => {
     MyModule.addListener("CallingFromiOS", res => {
       console.log("Hi MyModule.addListener", res);
       Aditya()
+      // const listener = {
+      //   componentDidAppear: ({ componentId }) => {
+      //     console.log('Component appeared:', componentId);
+      //   },
+      // };
+
+      // subscription = Navigation.events().registerComponentListener(listener);
+      // Navigation.events().bindComponent(this);
     })
 
     return () => {
-      MyModule.removeAllListeners("CallingFromiOS")
+      // MyModule.removeAllListeners("CallingFromiOS")
       console.log("Second Unmount");
+
+      subscription.remove();
     }
   }, [])
 
@@ -38,7 +51,15 @@ const Second = ({ navigation }) => {
     }}>
       <Text>second</Text>
       <TouchableOpacity
-        onPress={() => navigation.push("Second")}
+        onPress={() => {
+          console.log('componentId', props);
+          Navigation.push("Component1", {
+            component: {
+              name: 'Main'
+            }
+          })
+        }
+        }
         style={{
           height: 50,
           backgroundColor: "red",
@@ -105,7 +126,7 @@ const Second = ({ navigation }) => {
       <TouchableOpacity
         onPress={() => {
           console.log("onPress", NativeModules?.MyCustomModule);
-          NativeModules.MyCustomModule.myMethod("f","dd","Dd")
+          NativeModules.MyCustomModule.myMethod("f", "dd", "Dd")
         }}
         style={{
           height: 50,

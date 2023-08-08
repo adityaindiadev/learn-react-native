@@ -13,8 +13,9 @@ import Video from 'react-native-video';
 //Media Controls to control Play/Pause/Seek and full screen
 import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
 import Orientation from 'react-native-orientation';
+import { Navigation } from "react-native-navigation";
 
-const Main = () => {
+const Main = (props) => {
   const videoPlayer = useRef(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -23,6 +24,14 @@ const Main = () => {
   const [paused, setPaused] = useState(false);
   const [playerState, setPlayerState] = useState(PLAYER_STATES.PLAYING);
   const [screenType, setScreenType] = useState('content');
+
+  useEffect(() => {
+    
+
+    // Navigation.events().bindComponent(this);
+
+  }, [])
+
 
   const onSeek = (seek) => {
     //Handler for change in seekbar
@@ -88,11 +97,11 @@ const Main = () => {
 
   function backAction() {
 
-    console.log('screenType',screenType);
+    console.log('screenType', screenType);
 
     Orientation.getOrientation((err, orientation) => {
 
-      console.log('orientation',orientation);
+      console.log('orientation', orientation);
 
       // if (orientation == 'LANDSCAPE') {
       //   if (screenType == 'cover')

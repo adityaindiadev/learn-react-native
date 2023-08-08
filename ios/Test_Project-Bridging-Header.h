@@ -6,6 +6,7 @@
 #ifndef Test_Project_Bridging_Header_h
 #define Test_Project_Bridging_Header_h
 #import "AppDelegate.h"
+#import <ReactNativeNavigation/ReactNativeNavigation.h>
 
 #if __has_include("RCTBridgeModule.h")
 #import "RCTBridgeModule.h"

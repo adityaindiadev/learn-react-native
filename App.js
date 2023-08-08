@@ -28,6 +28,10 @@ import { NativeModules } from 'react-native';
 import ValuePicker from "rn-value-picker";
 // import HorizontalPicker from "react-native-horizontal-picker-2";
 import Navigation from './Navigation';
+import Main from './screens/Main';
+import Second from './screens/second';
+
+
 
 
 const App = ()  => {
@@ -36,7 +40,9 @@ const App = ()  => {
 
   return (
    
-    <Navigation/>
+    // <Navigation/>
+    // <Main/>
+    <Second/>
 
   );
 };

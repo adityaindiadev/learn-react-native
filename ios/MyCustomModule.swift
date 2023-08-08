@@ -11,6 +11,12 @@ import Foundation
 import React
 import UIKit
 
+let simpleClosure: () -> String = {
+  print("hi da observer");
+//  MyCustomModule().sendEvent(withName: "CallingFromiOS", body: "Hi")
+  return "Hello, World!"
+}
+
 @objc(MyCustomModule)
 class MyCustomModule: RCTEventEmitter {
   
@@ -23,34 +29,35 @@ class MyCustomModule: RCTEventEmitter {
     //
     //    NSLog("%@", result);
     //    NSLog("%d", num2);
-    NotificationCenter.default.addObserver(self, selector: #selector(methodOfReceivedNotification), name:Notification.Name(rawValue: "callRNFromiOS"), object: nil)
+//    NotificationCenter.default.addObserver(self, selector: #selector(methodOfReceivedNotification), name:Notification.Name(rawValue: "callRNFromiOS"), object: nil)
     NSLog("%@", value);
     NSLog("%@", parameter1);
     NSLog("%@", parameter2);
     print(parameter2)
     
-    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)
+//    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)
     //    return "got It"
     //    resolver("got It")
 //    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
     
-//    DispatchQueue.main.async { [self] in
-//      guard let window = UIApplication.shared.delegate?.window else {
-//        return
-//      }
-//      let navigationController = UINavigationController()
-//
-//      window?.rootViewController = navigationController
-//      let storyboard = UIStoryboard(name: "main", bundle: nil)
-//      let newRootViewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
-//      navigationController.pushViewController(newRootViewController, animated: true)
-//    }
+    DispatchQueue.main.async { [self] in
+      guard let window = UIApplication.shared.delegate?.window else {
+        return
+      }
+      let navigationController = UINavigationController()
+
+      window?.rootViewController = navigationController
+      let storyboard = UIStoryboard(name: "main", bundle: nil)
+      let newRootViewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+      navigationController.pushViewController(newRootViewController, animated: true)
+    }
   }
   
   @objc func methodOfReceivedNotification(notification: NSNotification){
     print("hi da observer");
     self.sendEvent(withName: "CallingFromiOS", body: "Hi")
   }
+  
   
   
   func sendSignalToRN() {

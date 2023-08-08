@@ -11,6 +11,8 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,7 @@ class FirstViewController: UIViewController {
     @IBAction func tapBtn(_ sender: Any) {
         
         print("Tap btn")
+      let abc = simpleClosure()
 //      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)
     }
     
