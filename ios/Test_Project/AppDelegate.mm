@@ -5,6 +5,7 @@
 #import <React/RCTBundleURLProvider.h>
 
 #import <React/RCTAppSetupUtils.h>
+#import <React/RCTLinkingManager.h>
 
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
@@ -17,6 +18,7 @@
 #import <react/config/ReactNativeConfig.h>
 
 #import "MyCustomModule-Bridging-Header.h"
+
 
 
 @interface RCT_EXTERN_MODULE(MyCustomModule, NSObject)
@@ -54,6 +56,13 @@
   
 
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+   openURL:(NSURL *)url
+   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+{
+  return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 - (NSArray<id<RCTBridgeModule>> *)extraModulesForBridge:(RCTBridge *)bridge {

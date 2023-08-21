@@ -40,18 +40,39 @@ class MyCustomModule: RCTEventEmitter {
     //    resolver("got It")
 //    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
     
-    DispatchQueue.main.async { [self] in
-      guard let window = UIApplication.shared.delegate?.window else {
-        return
-      }
-      let navigationController = UINavigationController()
-
-      window?.rootViewController = navigationController
+//    DispatchQueue.main.async { [self] in
+//      guard let window = UIApplication.shared.delegate?.window else {
+//        return
+//      }
+//      let navigationController = UINavigationController()
+//
+//      window?.rootViewController = navigationController
+//      let storyboard = UIStoryboard(name: "main", bundle: nil)
+//      let newRootViewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+//      navigationController.pushViewController(newRootViewController, animated: true)
+//    }
+    
+    DispatchQueue.main.async {
       let storyboard = UIStoryboard(name: "main", bundle: nil)
-      let newRootViewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
-      navigationController.pushViewController(newRootViewController, animated: true)
+      let viewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+      UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
     }
   }
+  
+  
+  @objc func backButtonClicked(_ value: String,parameter1: String,parameter2: String) {
+//          DispatchQueue.main.async {
+//              if let rootViewController = UIApplication.shared.keyWindow?.rootViewController {
+//                  if let presentingViewController = rootViewController.presentingViewController {
+//                      print("calling")
+//                    presentingViewController.dismiss(animated: true, completion: nil)
+////                      self.sendEvent(withName: "BackPressed", body: nil)
+//                  }
+//              }
+//          }
+    
+    sendSignalToRN()
+      }
   
   @objc func methodOfReceivedNotification(notification: NSNotification){
     print("hi da observer");

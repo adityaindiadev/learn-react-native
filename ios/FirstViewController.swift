@@ -23,8 +23,20 @@ class FirstViewController: UIViewController {
     @IBAction func tapBtn(_ sender: Any) {
         
         print("Tap btn")
-      let abc = simpleClosure()
+      
+      if let url = URL(string: "testproject://openScreen?screen=details") {
+                  if UIApplication.shared.canOpenURL(url) {
+                      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                  }
+              }
+      
+//      let abc = simpleClosure()
 //      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)
+      
+      // Call the backButtonClicked method from the native module
+//      let myNativeModule = RCTBridge.module(MyCustomModule)  as! MyCustomModule
+//      module(for: MyCustomModule.self) as! MyCustomModule
+//      MyCustomModule().backButtonClicked("f", parameter1: "dd", parameter2: "ss")
     }
     
 

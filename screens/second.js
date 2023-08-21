@@ -10,8 +10,8 @@ const Second = (props) => {
   const MyModule = new NativeEventEmitter(NativeModules.MyCustomModule)
 
   function Aditya() {
-    console.log("Arun Sir !");
-    Alert.alert("Arun Sir !")
+    console.log("Calling Aditya !");
+    Alert.alert("Calling Aditya !")
 
 
 
@@ -125,7 +125,7 @@ const Second = (props) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          console.log("onPress", NativeModules?.MyCustomModule);
+          console.log("onPress", NativeModules);
           NativeModules.MyCustomModule.myMethod("f", "dd", "Dd")
         }}
         style={{

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // import type { Node } from 'react';
 
@@ -19,7 +19,7 @@ import {
   Text,
   useColorScheme,
   View,
-  TouchableOpacity
+  TouchableOpacity, Linking
 } from 'react-native';
 
 import { NativeModules } from 'react-native';
@@ -27,22 +27,56 @@ import { NativeModules } from 'react-native';
 
 import ValuePicker from "rn-value-picker";
 // import HorizontalPicker from "react-native-horizontal-picker-2";
-import Navigation from './Navigation';
+// import Navigation from './Navigation';
 import Main from './screens/Main';
 import Second from './screens/second';
+import { Navigation } from "react-native-navigation";
 
 
 
 
-const App = ()  => {
+const App = () => {
 
- 
+
+  useEffect(() => {
+    const handleDeepLink = async (url) => {
+      console.log("Connecting", url);
+
+      Navigation.push("Component1", {
+        component: {
+          name: 'Main'
+        }
+      })
+
+    };
+
+    // Listen for incoming deep links
+    Linking.addEventListener('url', handleDeepLink);
+
+    // Check for an initial deep link when the app starts
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        console.log("Connecting", url);
+        handleDeepLink(url);
+      }
+      else {
+        console.log("Connecting", url);
+      }
+    });
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      Linking.removeEventListener('url', handleDeepLink);
+    };
+  }, []);
+
+
 
   return (
-   
+
     // <Navigation/>
     // <Main/>
-    <Second/>
+    <Second />
 
   );
 };

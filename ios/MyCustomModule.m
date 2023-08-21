@@ -15,6 +15,8 @@
 
   RCT_EXTERN_METHOD(myMethod:(NSString *)value parameter1:(NSString *)parameter1 parameter2:(NSString)parameter2); //Here exported your swift function for React Native
 
+RCT_EXTERN_METHOD(backButtonClicked:(NSString *)value parameter1:(NSString *)parameter1 parameter2:(NSString)parameter2);
+
 //  RCT_EXTERN_METHOD(myMethod:(NSString *)regularParam specificParam:(NSString *)specificParam moduleName:(NSString *)moduleName)
 
 
