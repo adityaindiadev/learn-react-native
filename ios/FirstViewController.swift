@@ -24,11 +24,15 @@ class FirstViewController: UIViewController {
         
         print("Tap btn")
       
-      if let url = URL(string: "testproject://openScreen?screen=details") {
-                  if UIApplication.shared.canOpenURL(url) {
-                      UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                  }
-              }
+//      if let url = URL(string: "testproject://openScreen?screen=details") {
+//                  if UIApplication.shared.canOpenURL(url) {
+//                      UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                  }
+//              }
+      
+      navigationController?.popViewController(animated: true)
+      
+      
       
 //      let abc = simpleClosure()
 //      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)

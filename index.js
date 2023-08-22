@@ -25,7 +25,12 @@ Navigation.events().registerAppLaunchedListener(() => {
          children: [
            {
              component: {
-               name: 'Test_Project'
+               name: 'Test_Project',
+               options: {
+                topBar: {
+                  visible: false
+                }
+               }
              },
            },
          ],

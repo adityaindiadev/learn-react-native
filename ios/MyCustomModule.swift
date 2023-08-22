@@ -18,9 +18,9 @@ let simpleClosure: () -> String = {
 }
 
 @objc(MyCustomModule)
-class MyCustomModule: RCTEventEmitter {
+class MyCustomModule: NSObject {
   
-  // Declare a method to be accessible from JavaScript
+  var window: UIWindow?  // Declare a method to be accessible from JavaScript
   @objc func myMethod(_ value: String,parameter1: String,parameter2: String) -> Void {
     // Perform the desired Swift functionality
     //    let result = "Hello, " + input + " " + par1
@@ -53,9 +53,24 @@ class MyCustomModule: RCTEventEmitter {
 //    }
     
     DispatchQueue.main.async {
-      let storyboard = UIStoryboard(name: "main", bundle: nil)
+//      let storyboard = UIStoryboard(name: "main", bundle: nil)
+//      let viewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+//
+//      guard let window = UIApplication.shared.delegate?.window else {
+//              return
+//            }
+//            let navigationController = UINavigationController()
+//      window?.rootViewController = navigationController
+//
+//      navigationController.pushViewController(viewController, animated: true)
+      
+      let storyboard = UIStoryboard.init(name: "main", bundle: nil)
       let viewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
-      UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
+      
+      let navVC = self.window?.rootViewController as? UINavigationController
+      navVC?.pushViewController(viewController, animated: true)
+      
+//      UIApplication.shared.keyWindow?.rootViewController?.present(viewController, animated: true, completion: nil)
     }
   }
   
@@ -76,21 +91,37 @@ class MyCustomModule: RCTEventEmitter {
   
   @objc func methodOfReceivedNotification(notification: NSNotification){
     print("hi da observer");
-    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
+//    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
   }
   
   
   
   func sendSignalToRN() {
-    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
+//    self.sendEvent(withName: "CallingFromiOS", body: "Hi")
   }
   
-  override func supportedEvents() -> [String]! {
-    return ["CallingFromiOS"];
-  }
+//  override func supportedEvents() -> [String]! {
+//    return ["CallingFromiOS"];
+//  }
   
-  override class func requiresMainQueueSetup() -> Bool {
-    return false;
+//  override class func requiresMainQueueSetup() -> Bool {
+//    return false;
+//  }
+  
+}
+
+
+extension AppDelegate{
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//    let storyboard = UIStoryboard.init(name: "main", bundle: nil)
+//    let viewController = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+//
+//    let navVC = AppDelegate().window.rootViewController as? UINavigationController
+//    navVC?.pushViewController(viewController, animated: true)
+    
+    print("Printing: ", url)
+    
+    return true
   }
   
 }

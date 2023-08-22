@@ -1,11 +1,13 @@
 #import "AppDelegate.h"
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
-
+//#import "NavigationiOSFunctions-Swift.h"
+#import "Test_Project-Swift.h"
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 
 #import <React/RCTAppSetupUtils.h>
-#import <React/RCTLinkingManager.h>
+
+//#import <React/RCTLinkingManager.h>
 
 #if RCT_NEW_ARCH_ENABLED
 #import <React/CoreModulesPlugins.h>
@@ -17,9 +19,12 @@
 
 #import <react/config/ReactNativeConfig.h>
 
+//#import "NavigationiOSFunctions-Swift.h"
 #import "MyCustomModule-Bridging-Header.h"
+//#import "NavigationiOSFunctions-Swift.h"
+//#import "UtilityFunctions-Swift.h"
 
-
+//@class UtilityFunctions
 
 @interface RCT_EXTERN_MODULE(MyCustomModule, NSObject)
 
@@ -58,11 +63,66 @@
   return YES;
 }
 
+//- (BOOL)application:(UIApplication *)application
+//   openURL:(NSURL *)url
+//   options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
+//{
+//
+//  return [RCTLinkingManager application:application openURL:url options:options];
+//}
+
 - (BOOL)application:(UIApplication *)application
    openURL:(NSURL *)url
    options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
-  return [RCTLinkingManager application:application openURL:url options:options];
+  NSLog(@"DeepLink URL: %@", url);
+  NSLog(@"DeepLink Path: %@", url.path);
+  
+  
+  NSString *pathStr = [url absoluteString];;
+  NSArray *pathComponents = [pathStr componentsSeparatedByString:@"//"];
+  NSString *extractedString = [pathComponents objectAtIndex:1];
+
+//  NSString *inputString = @"openScreen";
+
+  if ([extractedString isEqualToString:@"openScreen"]) {
+    
+      NSLog(@"Input string is 'openScreen'");
+      
+    
+    UtilityFunctions *swiftInstance = [[UtilityFunctions alloc] init];
+       
+    NSString *viewControllerName = @"desiredViewController";
+        [swiftInstance navigateFirstViewControllerWithName:viewControllerName];
+      
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+//    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+//
+//    UINavigationController *navVC = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+//    [navVC pushViewController:viewController animated:YES];
+    
+  } else if ([extractedString isEqualToString:@"openSecondScreen"]) {
+      NSLog(@"Input string is 'openSecondScreen'");
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+
+    UINavigationController *navVC = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+    [navVC pushViewController:viewController animated:YES];
+  }
+//  else {
+//      NSLog(@"Input string is neither 'openScreen' nor 'closeScreen'");
+//  }
+
+  
+//  UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+//  UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+//
+//  UINavigationController *navVC = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+//  [navVC pushViewController:viewController animated:YES];
+
+  
+  return true;
 }
 
 - (NSArray<id<RCTBridgeModule>> *)extraModulesForBridge:(RCTBridge *)bridge {

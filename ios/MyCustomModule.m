@@ -9,7 +9,7 @@
 #import <ReactNativeNavigation/ReactNativeNavigation.h>
 #import "React/RCTEventEmitter.h"
 #import "React/RCTBridgeModule.h"
-@interface RCT_EXTERN_MODULE(MyCustomModule,RCTEventEmitter);
+@interface RCT_EXTERN_MODULE(MyCustomModule,NSObject);
 
 //  RCT_EXTERN_METHOD(myMethod:(int)value ) //Here exported your swift function for React Native
 

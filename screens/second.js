@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, NativeModules, NativeEventEmitter, Alert } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, NativeModules, NativeEventEmitter, Alert, Linking } from 'react-native'
 import React, { useEffect } from 'react'
 import { Navigation } from "react-native-navigation";
 
@@ -103,7 +103,9 @@ const Second = (props) => {
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => navigation.popToTop()}
+        onPress={() => {
+          Linking.openURL("testproject://openSecondScreen");
+        }}
         style={{
           height: 50,
           backgroundColor: "red",
@@ -126,7 +128,8 @@ const Second = (props) => {
       <TouchableOpacity
         onPress={() => {
           console.log("onPress", NativeModules);
-          NativeModules.MyCustomModule.myMethod("f", "dd", "Dd")
+          // NativeModules.MyCustomModule.myMethod("f", "dd", "Dd")
+          Linking.openURL("testproject://openScreen");
         }}
         style={{
           height: 50,

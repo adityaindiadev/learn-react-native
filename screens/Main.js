@@ -25,12 +25,21 @@ const Main = (props) => {
   const [playerState, setPlayerState] = useState(PLAYER_STATES.PLAYING);
   const [screenType, setScreenType] = useState('content');
 
+ 
+
   useEffect(() => {
     
-
     // Navigation.events().bindComponent(this);
 
+    console.log("Component Mount !");
+  
+    return () => {
+      
+      
+
+    }
   }, [])
+  
 
 
   const onSeek = (seek) => {
