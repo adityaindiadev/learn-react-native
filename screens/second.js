@@ -98,7 +98,7 @@ const Second = (props) => {
             fontWeight: "bold",
           }}
         >
-          replce
+          replace
         </Text>
       </TouchableOpacity>
 
@@ -128,7 +128,7 @@ const Second = (props) => {
       <TouchableOpacity
         onPress={() => {
           console.log("onPress", NativeModules);
-          // NativeModules.MyCustomModule.myMethod("f", "dd", "Dd")
+          NativeModules.MyCustomModule.myMethod("Pratap", "products", "India")
           Linking.openURL("testproject://openScreen");
         }}
         style={{

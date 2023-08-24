@@ -17,6 +17,11 @@ let simpleClosure: () -> String = {
   return "Hello, World!"
 }
 
+var ourParam : String?
+var regParams : String?
+
+
+
 @objc(MyCustomModule)
 class MyCustomModule: NSObject {
   
@@ -34,6 +39,9 @@ class MyCustomModule: NSObject {
     NSLog("%@", parameter1);
     NSLog("%@", parameter2);
     print(parameter2)
+    
+    ourParam = parameter1
+    regParams = parameter2
     
 //    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "callRNFromiOS"), object: nil)
     //    return "got It"
